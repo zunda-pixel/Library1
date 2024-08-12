@@ -19,4 +19,4 @@ jobs:
     container: swiftlang/swift:nightly-6.0-jammy
     steps:
       - uses: actions/checkout@v4
-      - run: swift format lint -r -s .
+      - run: swift format lint -r -p -s .
