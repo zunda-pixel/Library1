@@ -1,12 +1,15 @@
-import XCTest
-@testable import Library1
+import Testing
+import Library1
+import RegexBuilder
 
-final class Library1Tests: XCTestCase {
-    func testExample() throws {
-        // XCTest Documentation
-        // https://developer.apple.com/documentation/xctest
-
-        // Defining Test Cases and Test Methods
-        // https://developer.apple.com/documentation/xctest/defining_test_cases_and_test_methods
-    }
+@Test(arguments: ["Name1", "Name2", "Name3"])
+func name(name: String) {
+  let regex = Regex {
+    Anchor.startOfLine
+    "Name"
+    OneOrMore(.digit)
+    Anchor.endOfLine
+  }
+  
+  #expect(name.starts(with: regex))
 }
