@@ -15,13 +15,13 @@ let package = Package(
   ],
   dependencies: [
     .package(url: "https://github.com/swiftlang/swift-testing", from: "0.11.0"),
+    .package(url: "https://github.com/zunda-pixel/http-client", exact: "0.1.2"),
   ],
   targets: [
-    .target(name: "HTTPClient"),
     .target(
       name: "Library1",
       dependencies: [
-        .target(name: "HTTPClient")
+        .product(name: "HTTPClient", package: "http-client"),
       ]
     ),
     .testTarget(
